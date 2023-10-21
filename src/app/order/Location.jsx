@@ -3,7 +3,7 @@ import { useGeolocated } from "react-geolocated";
 
 export function useGeolocation() {
   const { isGeolocationAvailable, isGeolocationEnabled, coords } = useGeolocated();
-
+window = {};
   if (typeof window !== 'undefined') {
    
     return {
