@@ -1,15 +1,13 @@
-"use client"
+/*"use client"
 import { useGeolocated } from "react-geolocated";
 
 export function useGeolocation() {
-  const { isGeolocationAvailable, isGeolocationEnabled, coords } = 1
+  const { isGeolocationAvailable, isGeolocationEnabled, coords } = useGeolocated();
 
-
-    return {
-      isAvailable: true,
-      isEnabled: false,
-      coordinates: true,
-    }
-
-}
+  return {
+    isAvailable: isGeolocationAvailable,
+    isEnabled: isGeolocationEnabled,
+    coordinates: coords,
+  };
+}*/
 
