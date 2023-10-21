@@ -22,6 +22,7 @@
     "react": "18.2.0",
     "react-creative-cursor": "^1.2.7",
     "react-dom": "18.2.0",
+    "react-geolocated": "^4.1.2",
     "react-icons": "^4.11.0",
     "react-leaflet": "^4.2.1",
     "react-player": "^2.13.0",
