@@ -1,0 +1,21 @@
+.loginpagemain {
+    overflow-y: hidden;
+    width: 100vw;
+    position: relative;
+}
+
+.blurbg {
+    top: 0px;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logincont {
+    height: 70vh;
+    width: 25vw;
+    border-radius: 0px;
+}

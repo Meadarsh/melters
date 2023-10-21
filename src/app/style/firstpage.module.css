@@ -1,0 +1,45 @@
+.mainPbox{
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+    transition: background-color .2s;
+    padding-top: 60px;
+    box-sizing: border-box;
+    transform: translateX(0);
+}
+.leftdiv{
+    margin-left: 10vw;
+    margin-top: 8vw;
+    height: 60vh;
+    width: 45vw;  
+}
+
+.leftdh1{
+    font-size: 8vw;
+    margin-left: 1.5vw;
+    z-index: 2;
+}
+.sizer2{
+    height: 40px;
+    margin-top: 4.7vw;
+    margin-left: 2.2vw;
+    margin-bottom: -3vw;
+    overflow: hidden;
+}
+.leftdh2{
+    font-size: 1.2vw;
+    font-weight: 500;
+    margin-top: -2.5vw;
+}
+.sizer3{
+    height: 80px;
+    margin-left: 16vw;
+    margin-top: -3vw;
+    overflow: hidden;
+}
+.leftdh3{
+    font-size: 4vw;
+    margin-top:-5vw;
+    font-family: 'Gloria Hallelujah', cursive;
+}

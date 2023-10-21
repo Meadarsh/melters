@@ -1,0 +1,84 @@
+.maindivp3{
+    height: 130vh;
+    width: 100vw;
+    background-color: white;
+    position: relative;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+.Pabsolutediv{
+    height: 100vh;
+    width: 100vw;
+    position: sticky;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.leftdiv{
+    height: 90vh;
+    width: 30vw;
+    overflow: hidden;
+    margin-right: 10vw;
+    display: flex;
+    justify-content:flex-end;
+    flex-direction: column;
+    padding-bottom: 65px;
+}
+.textbox{
+    position: relative;
+    width: 30vw;
+    height: 60px;
+    color: rgb(109, 109, 109);
+    margin-top: 15px;
+   
+}
+.textbox:hover .underLine{
+    width: 100%;
+}
+.textbox:hover{
+    color: black;
+}
+.underLine{
+    position: absolute;
+    bottom: 0px;
+    width: 0%;
+    height: 1.5px !important;
+    background-color: black;
+    transition: all 1s;
+}
+.textbox>h2{
+    margin-top: 10px;
+    margin-left: 2px;
+    font-size: 2.5vw;
+    font-weight: 400;
+
+}
+
+
+
+
+.mainImgDiv{
+    height: 80vh;
+    width: 30vw;
+    overflow: hidden;
+    margin-right: 3vw;
+
+}
+
+.innerImgdiv{
+    height: 80vh;
+    width: 30vw;
+    
+    overflow: hidden;
+}
+.innerImgdiv img{
+    height: 80vh;
+    width: 30vw;
+    object-fit: cover;
+    object-position: center;
+}
+.rightdiv{
+    width: 30vw;
+}
+
+

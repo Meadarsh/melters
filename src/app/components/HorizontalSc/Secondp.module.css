@@ -1,0 +1,65 @@
+.maindiv{
+    width: 100vw;
+    height: 375vw;
+    position: relative;
+    font-family: 'Gloria Hallelujah', cursive;
+    background-color: white;
+}
+.wrapper{
+    width: 400vw;
+    height: 100vh;
+    display: flex;
+    position:sticky !important;
+    top: 0px;
+    background-color: rgb(255, 223, 245);
+    transition:  background-color .2s;
+}
+.div1{
+    min-width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+  
+.innerdiv{
+    height: 25vw;
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+background-color: rgb(30, 20, 20) ;
+border-radius: 30% 70% 30% 70% / 37% 66% 34% 63% ;
+
+}
+.innerdiv0{
+    height: 25vw;
+    width: 25vw;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.042);
+}
+.innerdiv0>h1{
+    font-size: 2vw;
+    color: white;
+}
+.innerdiv0>p{
+    font-size: 1vw;
+    color: rgb(213, 204, 204);
+}
+.innerdiv2>h1{
+    color: black;
+}
+.innerdiv2>p{
+    color: rgb(63, 63, 63);
+}
+
+.innerdiv>img{
+    height: auto ;
+  
+}

@@ -1,0 +1,49 @@
+.maindiv{
+    height: 100vh;
+    width: 100vw;
+    background-color: silver;
+    padding-top: 2vw;
+    overflow:hidden ;
+    transition: color .3;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+.maindiv>h2{
+    margin-left: .8vw;
+    font-size: 4vw;
+    font-weight: 600;
+    margin-bottom: 4vw;
+    transition:  color .3;
+    width: 7vw;
+    height: 5vw;
+}
+
+
+.maindiv>h1{
+
+    font-size: 10vw;
+    font-weight: 500;
+    margin-top: -4vw;
+    color: rgb(69, 69, 69);
+    transition: color .3;
+   }
+.maindiv>h1:nth-child(3){
+    width: 49vw;
+}
+.maindiv>h1:nth-child(4){
+    width: 42vw;
+}
+.maindiv>h1:nth-child(2){
+    width: 22vw;
+    color: rgba(240, 248, 255, 0) !important;
+    -webkit-text-stroke: 3px rgb(69, 69, 69);
+    
+}
+.maindiv>h1:hover{
+    color: black;
+}
+.maindiv>h1:nth-child(2):hover{
+    -webkit-text-stroke: 3px black;
+}
+.buy{
+    font-size: 10vw;
+}
