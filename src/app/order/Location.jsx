@@ -1,4 +1,4 @@
-/*"use client"
+"use client"
 import { useGeolocated } from "react-geolocated";
 
 export function useGeolocation() {
@@ -9,5 +9,5 @@ export function useGeolocation() {
     isEnabled: isGeolocationEnabled,
     coordinates: coords,
   };
-}*/
+}
 
