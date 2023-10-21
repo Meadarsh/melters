@@ -5,38 +5,63 @@ import "./style.css";
 import { MapContainer, TileLayer, Circle, } from "react-leaflet";
 const Map = () => {
   const mapRef = useRef(null);
-  const [position, setposition] = useState([20, 78.9629]);
-  function got(loaction) {
-   
-      setposition( [loaction.coords.latitude, loaction.coords.longitude]);
-    
-  }
-  function failed() {
+ 
+ const[clientLocation,setClientLocaton]=useState([20,80,4]);
+  async function getLocation() {
+    if ('geolocation' in navigator) {
+      try {
+        const position = await new Promise((resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(
+            (position) => resolve(position),
+            (error) => reject(error)
+          );
+        });
   
-   console.log ("failed to fetch location. Please give acess");
-   
-  }
-  
-    useEffect(()=>{
-      if (typeof window !== 'undefined') {
-        const intervalId = setInterval(() => {
-          window.navigator.geolocation.getCurrentPosition(got, failed);
-        }, 5000);
-    
-        return () => {
-          clearInterval(intervalId);
-        };
+        return position;
+      } catch (error) {
+        throw error;
       }
-    }, [got, failed]);
-    
+    } else {
+      throw new Error('Geolocation is not supported.');
+    }
+  }
+  
+ 
+    const [Position, setPosition] = useState(null);
+    const [error, setError] = useState(null);
+  
+    useEffect(() => {
+      const fetchLocation = async () => {
+        try {
+          const position = await getLocation();
+          setPosition(position);
+        } catch (error) {
+          setError(error);
+        }
+      };
+  
+      fetchLocation();
+    }, []);
+   
+  
+  
+ 
+  setInterval(()=>{
+    let location = Position;
+    if(location.coords.latitude!=undefined){
+      setClientLocaton([location.coords.latitude,location.coords.longitude,15])
+        console.log(clientLocation)
+      }
+  },5000)
+  
   if (mapRef.current) {
-    mapRef.current.flyTo(position, 15);
+    mapRef.current.flyTo(clientLocation, clientLocation[2]);
   }
   const zoom=4.5;
   return (
     <>
     <div className="map-container">
-        <MapContainer center={position} zoom={zoom} ref={mapRef}>
+        <MapContainer center={[20, 80]} zoom={zoom} ref={mapRef}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
