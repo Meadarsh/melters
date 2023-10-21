@@ -1,6 +1,6 @@
 "use client"
 import React, { useRef, useEffect, useState } from 'react';
-import { useGeolocation } from './useGeolocation';
+import { useGeolocation } from "./Location";
 
 function LocationComponent() {
   const { isAvailable, isEnabled, coordinates } = useGeolocation();
