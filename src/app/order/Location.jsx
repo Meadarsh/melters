@@ -7,7 +7,7 @@ export function useGeolocation() {
 
     return {
       isAvailable: true,
-      isEnabled: true,
+      isEnabled: false,
       coordinates: true,
     }
 
