@@ -126,7 +126,7 @@ const SecondP = () => {
 
   return (
    
-    <div data-scroll-container className={`${styles.maindiv} maind`}>
+    <div data-scroll-container className={`${styles.maindiv}  maind`}>
       <div  ref={racesRef} className={`${styles.wrapper} races`}>
         <div  className={`${styles.div1} div1`}>
           <div className={`${styles.innerdiv} inerdiv`}>
@@ -143,8 +143,8 @@ const SecondP = () => {
             <p>
             Indulge in pure bliss with our rich and creamy chocolate ice cream. Irresistibly decadent, a scoop of happiness in every bite!
             </p>
-            <button class="button">
-              <span class="button-content">Explore</span>
+            <button className="button">
+              <span className="button-content">Explore</span>
             </button>
           </div>
         </div>
@@ -163,8 +163,8 @@ const SecondP = () => {
             <p>
             Vanilla makes a justifiable runner-up. After all, vanilla ice cream is so refreshing on a warm summer's day.
             </p>
-            <button class="button">
-              <span class="button-content">Explore</span>
+            <button className="button">
+              <span className="button-content">Explore</span>
             </button>
           </div>
         </div>
@@ -183,8 +183,8 @@ const SecondP = () => {
             <p>
             Rounding out the quintessential Neapolitan ingredients is strawberry-flavored ice cream. It's a great flavor if you want a few fruit chunks in your cone or cup; clearly, it's one of the most popular flavors.
             </p>
-            <button class="button">
-              <span class="button-content">Explore</span>
+            <button className="button">
+              <span className="button-content">Explore</span>
             </button>
           </div>
         </div>
@@ -203,8 +203,8 @@ const SecondP = () => {
             <p>
             Pistachio—you either love it or you hate it. Well, according to You Gov, a surprising amount of adults love pistachio. 
             </p>
-            <button class="button">
-              <span class="button-content">Explore</span>
+            <button className="button">
+              <span className="button-content">Explore</span>
             </button>
           </div>
         </div>

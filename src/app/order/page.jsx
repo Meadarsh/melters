@@ -46,9 +46,10 @@ const page = () => {
         <div className='order-detail-pannel'>
         <div className="order-detail">
          {
-            ab.map(()=>
-                <DCard/>
-            )
+            ab.map((item, index) => (
+              <DCard key={index} /> 
+            ))
+            
          } 
        
         </div>

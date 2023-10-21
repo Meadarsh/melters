@@ -55,12 +55,12 @@ const ThirdP = () => {
         </div>
         <div className={styles.mainImgDiv}>
         <div className={`${styles.rightdiv} p3Rdiv`}>
-     <div className={styles.innerImgdiv}><Image src="/Image/geleto.jpg" width={400} height={800}/></div>
-     <div className={styles.innerImgdiv}> <Image src="/Image/kulfi.png" width={500} height={700}/></div>
-     <div className={styles.innerImgdiv}> <Image src= "/Image/sherbet.png" width={460} height={0} /></div>
-     <div className={styles.innerImgdiv}> <Image src="/Image/sorbet.jpg" width={460} height={0} /></div>
-     <div className={styles.innerImgdiv}> <Image src="/Image/snowcream.jpg" width={460} height={0} /></div>
-     <div className={styles.innerImgdiv}> <Image src="/Image/geleto.jpg" width={460} height={0} /></div>
+     <div className={styles.innerImgdiv}><Image src="/Image/geleto.jpg" width={400} height={800} alt="N/a"/></div>
+     <div className={styles.innerImgdiv}> <Image src="/Image/kulfi.png" width={500} height={700} alt="N/a" /> </div>
+     <div className={styles.innerImgdiv}> <Image src= "/Image/sherbet.png" width={460} height={0}alt="N/a" /></div>
+     <div className={styles.innerImgdiv}> <Image src="/Image/sorbet.jpg" width={460} height={0} alt="N/a" /></div>
+     <div className={styles.innerImgdiv}> <Image src="/Image/snowcream.jpg" width={460} height={0} alt="N/a" /></div>
+     <div className={styles.innerImgdiv}> <Image src="/Image/geleto.jpg" width={460} height={0}alt="N/a"  /></div>
     </div> 
         </div>
       </div>

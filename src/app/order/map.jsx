@@ -18,11 +18,17 @@ const Map = () => {
   }
   
     useEffect(()=>{
-      setInterval(() => {
-      window.navigator.geolocation.getCurrentPosition(got, failed);
-    }, 5000);
-    })
-  
+      if (typeof window !== 'undefined') {
+        const intervalId = setInterval(() => {
+          window.navigator.geolocation.getCurrentPosition(got, failed);
+        }, 5000);
+    
+        return () => {
+          clearInterval(intervalId);
+        };
+      }
+    }, [got, failed]);
+    
   if (mapRef.current) {
     mapRef.current.flyTo(position, 15);
   }
