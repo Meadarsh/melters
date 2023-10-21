@@ -1,6 +1,7 @@
 "use client"
 import React, { useRef, useEffect, useState } from 'react';
 import { useGeolocation } from "./Location";
+import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Circle, } from "react-leaflet";
 function LocationComponent() {
   const { isAvailable, isEnabled, coordinates } = useGeolocation();
