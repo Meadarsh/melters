@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import Map from './map'
+import Map from './Indexmap'
 import Cancle from './Cancle'
 import {FaBars} from "react-icons/fa"
 import {FaS, FaXmark} from "react-icons/fa6"
@@ -11,8 +11,8 @@ const page = () => {
         function openClose(){
             if(navCondition[1]===1){
             setNavCondition ([ <FaXmark className='icon-order' />,0 ,'opacityChange', <div className={` ${navCondition[4]}  order-actions`}>
-            <button onClick={neww} type="submit" class="btn btn-primary">Delay Order</button>
-            <button onClick={cancleBox} class="btn btn-secondary">Decline Order</button>
+            <button onClick={neww} type="submit" className="btn btn-primary">Delay Order</button>
+            <button onClick={cancleBox} className="btn btn-secondary">Decline Order</button>
         </div>,'open-button']);
         }
         else{

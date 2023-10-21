@@ -1,44 +1,42 @@
-"use client"
-import React, { useRef, useEffect, useState } from 'react';
-import { useGeolocation } from "./Location";
+import React, { useEffect, useState ,useRef} from "react";
 import "leaflet/dist/leaflet.css";
+import "./style.css";
+import { useGeolocation } from "./Location";
 import { MapContainer, TileLayer, Circle, } from "react-leaflet";
-function LocationComponent() {
+const Map = () => {
   const { isAvailable, isEnabled, coordinates } = useGeolocation();
   const mapRef = useRef(null);
-  const [clientLocation, setClientLocation] = useState([20, 80, 4]);
+ 
+ const[clientLocation,setClientLocation]=useState([20,80,4]);
+ 
+ useEffect(() => {
+  const updateClientLocation = () => {
+    if (isAvailable && isEnabled && coordinates) {
+     setClientLocation([coordinates.latitude, coordinates.longitude, 15]);
+    }
+  };
 
-  useEffect(() => {
-    const updateClientLocation = () => {
-      if (isAvailable && isEnabled && coordinates) {
-        setClientLocation([coordinates.latitude, coordinates.longitude, 4]);
-      }
-    };
+  updateClientLocation();
 
-    // Initial update
-    updateClientLocation();
+  const intervalId = setInterval(updateClientLocation, 5000);
 
-    // Set up an interval to periodically update the location
-    const intervalId = setInterval(updateClientLocation, 5000);
-
-    // Clear the interval when the component unmounts
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [isAvailable, isEnabled, coordinates]);
-
+  return () => {
+    clearInterval(intervalId);
+  };
+}, [isAvailable, isEnabled, coordinates]);
+ 
+   
+  
+  if (mapRef.current) {
+    mapRef.current.flyTo([clientLocation[0],clientLocation[1]], clientLocation[2]);
+  }
+  const zoom=4.5;
   return (
-    <div>
-      {clientLocation ? (
-        <div>
-          <p>Latitude: {clientLocation[0]}</p>
-          <p>Longitude: {clientLocation[1]}</p>
-          <p>Altitude: {clientLocation[2]}</p>
-        </div>
-      ) : (
-        <p>Getting location...</p>
-      )}
-       <MapContainer center={[20, 80]} zoom={10} >
+    <>
+     {isAvailable ? (
+        isEnabled ? (
+          <div className="map-container">
+          <MapContainer center={[20, 80]} zoom={zoom} ref={mapRef}>
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -48,8 +46,16 @@ function LocationComponent() {
               attribution='&copy;  <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a>"> contributors'
             />
           </MapContainer>
-    </div>
+        </div>
+        ) : (
+          <p>Geolocation is not enabled in your browser.</p>
+        )
+      ) : (
+        <p>Your browser does not support geolocation.</p>
+      )}
+ 
+    </>
   );
-}
+};
 
-export default LocationComponent;
+export default Map;
