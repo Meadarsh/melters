@@ -19,7 +19,7 @@ const Map = () => {
   
     useEffect(()=>{
       setInterval(() => {
-      navigator.geolocation.getCurrentPosition(got, failed);
+      window.navigator.geolocation.getCurrentPosition(got, failed);
     }, 5000);
     })
   
