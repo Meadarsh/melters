@@ -1,60 +1,44 @@
-"use client";
-import React, { useEffect, useState ,useRef} from "react";
+"use client"
+import React, { useRef, useEffect, useState } from 'react';
+import { useGeolocation } from './useGeolocation';
 
-import "./style.css";
+function LocationComponent() {
+  const { isAvailable, isEnabled, coordinates } = useGeolocation();
+  const mapRef = useRef(null);
+  const [clientLocation, setClientLocation] = useState([20, 80, 4]);
 
-const Map = () => {
- // const { isAvailable, isEnabled, coordinates } = useGeolocation();
- 
- 
+  useEffect(() => {
+    const updateClientLocation = () => {
+      if (isAvailable && isEnabled && coordinates) {
+        setClientLocation([coordinates.latitude, coordinates.longitude, 4]);
+      }
+    };
 
- /*
- useEffect(() => {
-  const updateClientLocation = () => {
-    if (isAvailable && isEnabled && coordinates) {
-     setClientLocation([coordinates.latitude, coordinates.longitude, 15]);
-    }
-  };
+    // Initial update
+    updateClientLocation();
 
-  updateClientLocation();
+    // Set up an interval to periodically update the location
+    const intervalId = setInterval(updateClientLocation, 5000);
 
-  const intervalId = setInterval(updateClientLocation, 5000);
+    // Clear the interval when the component unmounts
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [isAvailable, isEnabled, coordinates]);
 
-  return () => {
-    clearInterval(intervalId);
-  };
-}, [isAvailable, isEnabled, coordinates]);
- 
-  */ 
-  
-  
   return (
-    <>
-     {/*isAvailable ? (
-        isEnabled ? (
-          <div className="map-container">
-          <MapContainer center={[20, 80]} zoom={zoom} ref={mapRef}>
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            />
-            <TileLayer
-              url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
-              attribution='&copy;  <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a>"> contributors'
-            />
-          </MapContainer>
+    <div>
+      {clientLocation ? (
+        <div>
+          <p>Latitude: {clientLocation[0]}</p>
+          <p>Longitude: {clientLocation[1]}</p>
+          <p>Altitude: {clientLocation[2]}</p>
         </div>
-        ) : (
-          <p>Geolocation is not enabled in your browser.</p>
-        )
       ) : (
-        <p>Your browser does not support geolocation.</p>
-      )*/}
-   <div className="map-container">
-          <h1>Hello</h1>
-        </div>
-    </>
+        <p>Getting location...</p>
+      )}
+    </div>
   );
-};
+}
 
-export default Map;
+export default LocationComponent;
