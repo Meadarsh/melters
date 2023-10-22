@@ -45,6 +45,7 @@ const Map = () => {
               url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
               attribution='&copy;  <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a>"> contributors'
             />
+            <Circle center={[clientLocation[0],clientLocation[1]]}></Circle>
           </MapContainer>
         </div>
         ) : (

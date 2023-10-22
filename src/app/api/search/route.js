@@ -23,19 +23,7 @@ let request= await req.json()
       }
     }
   ];
-/* const autoC= [
-    {
-      '$search': {
-        'index': 'autocomplete', 
-        'text': {
-          'query': 'chocolate', 
-          'path': 'name'
-        }
-      }
-    }, {
-      '$limit': 5
-    }
-  ]*/
+
   
   
   await mongoose.connect(connStr)
