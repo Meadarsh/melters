@@ -5,9 +5,8 @@ import Shopheading from '../components/shopheading'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../toolkit/cartSlice'
-import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 import Itemcard from '../components/Itemcard'
-export default withPageAuthRequired(function RenderDisp({user}) {
+function RenderDisp({user}) {
     const dispatchUid=useDispatch()
     const[product,setProduct]=useState([1]);
     const produc = useSelector((state) => state.search.render.data);
@@ -63,4 +62,4 @@ export default withPageAuthRequired(function RenderDisp({user}) {
   )
 }
 
-)
+export default RenderDisp

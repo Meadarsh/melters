@@ -5,7 +5,8 @@ import RenderDisp from './renderDisp'
 import { BrowserRouter,Route,Routes } from 'react-router-dom'
 import Cart from './cart'
 import { BsTypeH1 } from 'react-icons/bs'
-const  ShoppingP =  () => {
+import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
+export default withPageAuthRequired(function  ShoppingP  ({user}){
 
   return (
    
@@ -16,7 +17,7 @@ const  ShoppingP =  () => {
         <BrowserRouter>
         <Searchf/> 
         <Routes>
-            <Route path="shop/" element={<RenderDisp />} />
+            <Route path="shop/" element={<RenderDisp user={user} />} />
             <Route path="shop/Cart/*" element={<Cart />} />
           </Routes>
        </BrowserRouter>
@@ -25,6 +26,5 @@ const  ShoppingP =  () => {
         
     
   )
-}
+})
 
-export default ShoppingP
