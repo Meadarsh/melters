@@ -3,6 +3,7 @@ const ProductModel=new mongoose.Schema({
     name:String,
     description:String,
     image_url:String,
-    price_in_rupees:Number
+    price_in_rupees:Number,
+    sellerName:String
     })
-    export const setProduct=mongoose.models.unapproveds|| mongoose.model('unapproveds',ProductModel)
+    export const SetProduct=mongoose.models.unapproveds|| mongoose.model('unapproveds',ProductModel)

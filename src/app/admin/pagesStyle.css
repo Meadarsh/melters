@@ -1,0 +1,90 @@
+
+.AllProductMain{
+    padding-top: 10px;
+    padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+ gap: 10px;
+  width: 100%;
+ 
+}
+.AllProductC{
+    box-sizing: border-box;
+    height: 8vw;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    background-color: white;
+    margin: auto;
+   padding-left: .5vw;
+   padding-right: 2vw;
+   color: rgb(0, 133, 0);
+}
+.AproductCardd{
+  color: black;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+.AproductCardd img{
+  height: 7vw;
+  width: 7vw;
+  border-radius: 5px;
+
+}
+.adminPtitle{
+    
+font-size: 3vw;
+margin: auto;
+}
+/**************** Unaproved *************************************************/
+.AUnapproveCard{
+  margin: auto;
+  height: 12vw;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  width: 95%;
+  align-items: center;
+  justify-content: space-between;
+  padding-left:1vw ;
+  padding-right:1vw ;
+  margin-top: 1vw;
+  border-radius: 5px;
+  color: green;
+
+}
+.AUnapproveCard img{
+  border-radius: 5px;
+}
+.AunapprovedCardd{
+  color: black;
+  height: 100%;
+  display: flex;
+  width: 80%;
+  overflow-wrap: break-word;
+  align-items: center;
+  gap: 1vw;
+}
+.AunaprovedBt{
+  height: 80%;
+  width: 15vw;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2px;
+  font-size: 2vw;
+}
+.AUbuttonA{
+  border-radius: 5px;
+  height: 2.2vw;
+  width: 7vw;
+  font-size: 1.2vw;
+  border: 0;
+  cursor: pointer;
+  color: black;
+}
+

@@ -3,14 +3,18 @@ import React, { useEffect, useState } from 'react'
 import './shopping.css'
 import Shopheading from '../components/shopheading'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../toolkit/cartSlice'
+import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 import Itemcard from '../components/Itemcard'
-const RenderDisp = () => {  
+export default withPageAuthRequired(function RenderDisp({user}) {
+    const dispatchUid=useDispatch()
     const[product,setProduct]=useState([1]);
-    const produc = useSelector((state) => state.render.data);
-
+    const produc = useSelector((state) => state.search.render.data);
   useEffect(() => {
+    dispatchUid(addToCart(user))
     const fetchDataWithDelay = () => {
-      setTimeout(() => {
+      
         let data;
         if(!produc||produc.length==0){
             data=[1]
@@ -19,27 +23,31 @@ const RenderDisp = () => {
             data=produc
         }
         setProduct(data);
-      }, 1000); // Delay of 100 milliseconds
+     
     };
 
     fetchDataWithDelay();
   }, [produc]);
  
   if(product[0]==1){
-    return (<div className='render-main-loader'>
-      <div class="spinner"></div>
+    return (
+     
+      <div className='render-main-loader'>
+      <div className="spinner"></div>
 
     </div>
     );
   }
 
   return (
-    <div className='render-main-box'>
+    <>
+     <div className='render-main-box'>
         <Shopheading/>
-       {
- product.map((item)=>(
+       { product&&product.map((item)=>(
     <Itemcard 
     key={item._id}
+    userName={user}
+    id={item._id}
     name={item.name}
     discrip={item.discription}
     img={item.image_url}
@@ -49,10 +57,10 @@ const RenderDisp = () => {
       
  ))
          
-        }
-
-    </div>
+       }
+</div>
+    </>
   )
 }
 
-export default RenderDisp
+)

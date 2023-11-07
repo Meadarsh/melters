@@ -3,10 +3,13 @@ import React, { useState } from 'react'
 import Map from './Indexmap'
 import Cancle from './Cancle'
 import {FaBars} from "react-icons/fa"
-import {FaS, FaXmark} from "react-icons/fa6"
+import { FaXmark} from "react-icons/fa6"
+import { useSelector } from 'react-redux'
 import DCard from './deliveryCard';
 import "./style.css";
 const page = () => {
+    const cartData=useSelector((state) => state.cart.cart);
+    console.log(cartData);
         const[navCondition,setNavCondition]=useState([<FaBars className='icon-order'/>,1,''])
         function openClose(){
             if(navCondition[1]===1){

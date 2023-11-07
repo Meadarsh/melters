@@ -7,7 +7,7 @@ const Navbar = () => {
    <>
     <div className={`mainnav`}>
         <div  className={`navbutton1`}>
-       < IoPersonCircleSharp/>  
+        <a href="/api/auth/login">< IoPersonCircleSharp/></a>   
         </div>
         <div className={'NCdiv'}>
         <div className={'margintop'}>
@@ -17,7 +17,7 @@ const Navbar = () => {
            
         </div>
         <div className={'navbutton'}>
-            <h2>Customize</h2>
+        <a href="/api/auth/logout">lo</a>   <h2>Customize</h2>
            
         </div>
         </div>

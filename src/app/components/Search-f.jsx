@@ -4,11 +4,14 @@ import { useEffect, useState } from "react";
 import { FiFilter, FiChevronDown } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import { addRender } from "../toolkit/slice";
-import Link from "next/link";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
   
 
 const Searchf = () => {
   const dispatch=useDispatch();
+  const cartCount=useSelector((item)=>item.cart.cart)
+
     const [searchTerm, setSearchTerm] = useState(".");
   useEffect(() => {
     gsap.to(".filter", {
@@ -42,7 +45,7 @@ const Searchf = () => {
  
   },[searchTerm]);
   
-   
+  
 
   let value = "close";
   function openfilter() {
@@ -202,7 +205,7 @@ const Searchf = () => {
           <div className="FlavrList">
             <h2>Coffee</h2>
             <label className="container">
-              <input type="checkbox" />
+              <input type="checkbox"/>
               <svg viewBox="0 0 64 64" height="2em" width="2em">
                 <path
                   d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
@@ -254,7 +257,8 @@ const Searchf = () => {
         </div>
       </div>
       <div className="cart-order">
-       
+     
+     <NavLink to={"/shop/cart"}><h2>Cart({Object.keys(cartCount).length })</h2></NavLink> 
       </div>
     </div>
   );

@@ -19,14 +19,28 @@
    margin-right: 10px;
    border-radius: 5px;
 }
-
+.render-main-box{
+  top: 10px;
+  left: 340px;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width:77.3vw;
+ height: 97vh;
+overflow-x: hidden;
+ display: flex;
+ align-items:flex-start;
+ flex-wrap: wrap;
+ background-color:  rgb(249, 241, 255);
+ overflow-y: scroll;
+}
 .rightCpannelHeading{
     width: 77.2vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80px;
-    font-size: 25px;
+    margin-bottom: 10px;
+    font-size: 3vw;
     border-radius: 10px 10px 0 0;
 }
 .rightCpannelLower{
@@ -297,30 +311,42 @@
    width: 10px;
   }
   
-  .card{
-    margin-left: 11px;
+  .shopcard{
+   overflow: hidden;
     margin-bottom: 11px;
-    width:200px;
-    height: 260px;
+    min-width:223px;
+    height: 280px;
+    margin-left: 12px;
     background-color: #ffffff;
-    border-radius: 8px;
-    padding: 12px;
+    border-radius: 2px;
     opacity: 0;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-   
-
+    transition: all .3s;
   }
-  .card h2{
+  .shopcard:hover{
+    scale: 1.02;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+  .shopcard:hover >.addtocartdiv{
+    opacity: 1;
+  }
+  .addtocartdiv{
+    opacity: 0;
+    border-radius: 4px 0 0 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+  .shopcard h2{
     text-wrap: nowrap;
-    margin-top: 10px;
-    font-size: 20px;
-
+    overflow: hidden;
+    margin-top: -5px;
+    font-size: 15px;
   }
   .img{
+    margin-bottom: 15px;
     height: 180px;
-    background-color: #283542;
+    width:223px;
+    background-color: rgb(255, 248, 255);
     overflow: hidden;
-    border-radius: 8px;
   }
   .img>img{
     height: 100%;
@@ -329,12 +355,15 @@
   }
   .dispflex{
     display: flex;
+    margin-top: 10px;
     justify-content: space-between;
     align-items:end;
+
   }
   .dispflex h2{
     color: green;
-    font-size: 30px;
+    font-size: 25px;
+    overflow: visible;
   }
   .autoComplete{
     width: 65%;
@@ -362,22 +391,7 @@
     background-color: rgba(199, 120, 255, 0.226);
   }
  
-  .render-main-box{
-    top: 10px;
-    left: 340px;
-    position: absolute;
-    box-sizing: border-box;
-    border-radius: 5px;
-    width: 77.3vw;
-   height: 97vh;
-  overflow-x: hidden;
-   display: flex;
-   align-items:flex-start;
-   flex-wrap: wrap;
-   background-color:  rgb(249, 241, 255);
-  border: 1px solid   rgb(242, 225, 255);
-   overflow-y: scroll;
-  }
+
 .render-main-loader{
   top: 10px;
   left: 340px;

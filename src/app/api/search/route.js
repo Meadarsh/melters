@@ -41,6 +41,3 @@ let request= await req.json()
   
     return NextResponse.json({result:dataDisplay,success:true});
 }
-
-
-

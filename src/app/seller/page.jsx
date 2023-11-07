@@ -1,9 +1,12 @@
 "use client"
 import React, {useState, useEffect } from "react";
 import "./style.css";
+import Image from 'next/image'
 import Popup from "./popupmessege";
-const Page = () => {
+import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
+export default withPageAuthRequired(function Seller({user}) {
   const [data, setData] =useState();
+  const [sellerName,setSellerName]=useState()
   const [name, setName] =useState('');
   const [price_in_rupees,setPrice]=useState('')
   const [description,setDiscription] =useState('');
@@ -13,14 +16,14 @@ const Page = () => {
   const nameP="Enter name between a-z or A-Z."
   const priceP="Enter valid number for price."
   let regex = /^[a-zA-Z\s]+$/; 
-  
- function Submit(){
+ 
+  function Submit(){
   setShowPopup(true)
   if(regex.test(name) ){
     if(40< description.length){
     if(0<price_in_rupees){
       if (20<image_url.length) {
-        setData({name,description,image_url,price_in_rupees})
+        setData({name,description,image_url,price_in_rupees,sellerName})
         setMessege("Submiting..")
        
         return
@@ -41,8 +44,9 @@ const Page = () => {
     setMessege(nameP)
   }
 }
- console.log(messege)
+
  useEffect(()=>{
+  setSellerName(user.name)
  const postApiData = async () => {
  if(data!=undefined){
   try {
@@ -74,18 +78,17 @@ const Page = () => {
   };
   return (
     <div className="sellerPage-main">
-      
+      <Image src='/Image/MeltersSeller.png' width={1920} height={1080} alt="Image" ></Image>
       {showPopup && (
         <Popup message={messege} onClose={closePopup} />
       )}
-      <h1>Seller Page</h1>
-      <div className="sellerPage-innnerdiv">
-        <div className="card-seller">
-          <div className="content-seller">
-            <div className="back-seller">
-              <div className="back-content-seller ">
-                <div className="hiderdiv-seller">
-                <h2>Enter product Detail</h2>
+      
+        <div className="sellerPage-innner">
+
+       
+                <p className="sellername">Hello,{user.name}</p>
+                <div className="sellerPage-innnerdiv">     
+                <h2>Enter product Details</h2>
                 <input
                   className="name-sellerProdut"
                   type="text"
@@ -101,7 +104,7 @@ const Page = () => {
                   cols="30"
                   rows="10"
                   value={description}
-                  placeholder="Details of your product"
+                  placeholder="Describe your product"
                   onChange={(e)=>{
                     setDiscription(e.target.value)
                   }}
@@ -127,12 +130,11 @@ const Page = () => {
                 />
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              </div>
   );
-};
 
-export default Page;
+}
+
+);
+
+

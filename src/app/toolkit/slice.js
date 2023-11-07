@@ -3,8 +3,8 @@ import { createSlice,nanoid } from "@reduxjs/toolkit";
 const initialState={
       render:[
         {
-            id: nanoid(),
-            data:'_default_'
+            id:'',
+            data:''
         }
       ],
 }

@@ -1,13 +1,15 @@
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
-import { setProduct } from "../model/setproduct";
+import { SetProduct } from "../model/setproduct";
 import { connStr } from "../mongodb";
 
 export async function POST(req,res){
-    try {
+ 
+  
+  try {
         await mongoose.connect(connStr);
         let payload = await req.json();
-        let product = new setProduct(payload.data);
+        let product = new SetProduct(payload.data);
         const result = await product.save();
         
         if (result) {
