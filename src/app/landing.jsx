@@ -31,11 +31,11 @@ export const Firstpage = () => {
       translateY: 60,
     });
 
-    gsap.from(".maindiv", {
+  /*  gsap.from(".maindiv", {
       scale: 0.95,
       y: 150,
       duration: 0.6,
-    });
+    });*/
     gsap.from(".mainnav", {
       backgroundColor: "transparent",
       delay: 0.6,
