@@ -11,6 +11,7 @@ import Fourth from "./components/Fourth";
 export const Firstpage = () => {
   gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
+    window.scrollTo(0, 0);
     gsap.to("body", {
       backgroundColor: "white",
       delay: 1,
