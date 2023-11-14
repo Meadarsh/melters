@@ -7,6 +7,7 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 export default withPageAuthRequired(function Seller({user}) {
   const [data, setData] =useState();
   const [sellerName,setSellerName]=useState()
+  const [sellerEmail,setsellerEmail]=useState()
   const [name, setName] =useState('');
   const [price_in_rupees,setPrice]=useState('')
   const [description,setDiscription] =useState('');
@@ -23,7 +24,7 @@ export default withPageAuthRequired(function Seller({user}) {
     if(40< description.length){
     if(0<price_in_rupees){
       if (20<image_url.length) {
-        setData({name,description,image_url,price_in_rupees,sellerName})
+        setData({name,description,image_url,price_in_rupees,sellerName,sellerEmail})
         setMessege("Submiting..")
        
         return
@@ -47,6 +48,7 @@ export default withPageAuthRequired(function Seller({user}) {
 
  useEffect(()=>{
   setSellerName(user.name)
+  setsellerEmail(user.email)
  const postApiData = async () => {
  if(data!=undefined){
   try {

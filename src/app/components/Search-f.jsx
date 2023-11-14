@@ -1,14 +1,20 @@
 "use client";
 import gsap from "gsap";
 import { useEffect, useState } from "react";
-import { FiFilter, FiChevronDown } from "react-icons/fi";
+import { FiFilter, FiChevronDown,FiHeart } from "react-icons/fi";
 import { useDispatch } from "react-redux";
+import {BiCartAlt ,BiHeart,BiStore} from "react-icons/bi"
 import { addRender } from "../toolkit/slice";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-  
 
-const Searchf = () => {
+
+
+const Searchf = ({sendDataToParent}) => {
+  const handleClick = (val) => {
+    sendDataToParent(val);
+    setNavigate(val)
+  };
+  const [navigate,setNavigate]=useState(0)
   const dispatch=useDispatch();
   const cartCount=useSelector((item)=>item.cart.cart)
 
@@ -66,13 +72,12 @@ const Searchf = () => {
 
   function searching(val) {
     setSearchTerm(val);
-   
-   
   }
 
   return (
     <div className="leftCpannel">
-      <form className="form">
+     
+   {navigate ===0?<form className="form">
         <label >
           <input
             className="input"
@@ -113,10 +118,18 @@ const Searchf = () => {
           </button>
         </label>
        
-      </form>
-       <div className="autoComplete">
-      
-       </div>
+      </form>: <div onClick={()=>handleClick(0)} className=" hover:text-purple-600 w-28 cart-order  mt-5 flex items-center justify-between">
+     
+     <h2 className="text-xl ">Shop</h2><BiStore />
+      </div>}
+       <div onClick={()=>handleClick(1)} className=" hover:text-purple-600 w-28 cart-order mt-5 flex items-center justify-between">
+     
+     <h2 className="text-xl ">Wishlist</h2><BiHeart />
+      </div>
+     <div onClick={()=>handleClick(2)} className=" w-28  hover:text-purple-600 cart-order mt-5 flex items-center justify-between ">
+     
+     <h1 className="text-xl">Cart</h1> <BiCartAlt />
+      </div>
       <div className="filterOC" onClick={openfilter}>
         <FiFilter />
         <FiChevronDown />
@@ -256,10 +269,7 @@ const Searchf = () => {
           </div>
         </div>
       </div>
-      <div className="cart-order">
      
-     <NavLink to={"/shop/cart"}><h2>Cart({Object.keys(cartCount).length })</h2></NavLink> 
-      </div>
     </div>
   );
 };

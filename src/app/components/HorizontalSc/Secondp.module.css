@@ -23,17 +23,6 @@
 }
 
   
-.innerdiv{
-    height: 25vw;
-    width: 25vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-background-color: rgb(30, 20, 20) ;
-border-radius: 30% 70% 30% 70% / 37% 66% 34% 63% ;
-
-}
 .innerdiv0{
     height: 25vw;
     width: 25vw;

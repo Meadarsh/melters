@@ -25,7 +25,6 @@ const Unaproved = () => {
     async function getData() {
       try {
         let data = await fetchData();
-        console.log(data.result);
         setProduct(data.result);
       } catch (error) {
         console.log("Error", error);

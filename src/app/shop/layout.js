@@ -1,13 +1,31 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import Curso from '../components/cursor'
-const layout = ({children}) => {
+import Searchf from '../components/Search-f'
+
+import { useUser } from '@auth0/nextjs-auth0/client'
+import "./shopping.css"
+
+
+const layout = (props) => {
+ const { user, error, isLoading } = useUser();
+
+  const[navVal,setNavVal]=useState(0)
+  const DataFromChild = (data) => {
+    setNavVal(data);
+  };
   return (
+
 <>
-<Curso/>
 
-<div>{children}</div>
+{user&&<div className='MainshopP'>
+  <Searchf sendDataToParent={DataFromChild} />
+  {props.children}
+  {navVal===2?props.cart:null}
+  {navVal===0?props.shop:null}
+  </div>}
+
 </>
-
   )
 }
 

@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import styles from "./Secondp.module.css";
 import  ScrollTrigger  from "gsap/ScrollTrigger";
 import Image from "next/image";
+import "./horizontalpage.css"
 import  gsap  from "gsap";
 import "@/app/style/visitbutton.css";
 const SecondP = () => {
@@ -102,34 +103,15 @@ const SecondP = () => {
       },
     });
 
-    // Animation **********************************************************/
-   const tl = gsap.timeline({
-      repeat: -1,
-
-      onStart: function () {
-        gsap.set(".inerdiv", {});
-      },
-    });
-    tl.from(".inerdiv", {
-      borderRadius: "30% 70% 30% 70% / 37% 66% 34% 63% ",
-      duration: 2,
-    });
-    tl.to(".inerdiv", {
-      borderRadius: "74% 26% 70% 30% / 62% 29% 71% 38% ",
-      duration: 2,
-    });
-    tl.to(".inerdiv", {
-      borderRadius: "30% 70% 30% 70% / 37% 66% 34% 63% ",
-      duration: 2,
-    });
-  });
+  })
 
   return (
    
     <div data-scroll-container className={`${styles.maindiv}  maind`}>
       <div  ref={racesRef} className={`${styles.wrapper} races`}>
         <div  className={`${styles.div1} div1`}>
-          <div className={`${styles.innerdiv} inerdiv`}>
+          <div className="animatedBox2" >
+          <div className={`animatedBox`}>
             <Image
               src="/Image/Chocolate.png"
               priority
@@ -137,6 +119,7 @@ const SecondP = () => {
               width={200}
               height={0}
             />
+          </div>
           </div>
           <div className={`${styles.innerdiv0} inerdiv1`}>
             <h1 data-cursor-text="Chocolate" data-cursor-size="100px">Chocolate</h1>
@@ -149,14 +132,16 @@ const SecondP = () => {
           </div>
         </div>
         <div className={`${styles.div1} div2`}>
-          <div className={`${styles.innerdiv} inerdiv`}>
+        <div className="animatedBox2" >
+          <div className={`animatedBox`}>
             <Image
               src="/Image/vanilla.png"
               priority
               alt="N/A"
-              width={250}
+              width={300}
               height={0}
             />
+          </div>
           </div>
           <div className={`${styles.innerdiv2} ${styles.innerdiv0} inerdiv1`}>
             <h1 data-cursor-text="Vanila" data-cursor-size="100px" >Vanilla</h1>
@@ -169,14 +154,16 @@ const SecondP = () => {
           </div>
         </div>
         <div className={`${styles.div1} div3`}>
-          <div className={`${styles.innerdiv} inerdiv`}>
+        <div className="animatedBox2" >
+          <div className={`animatedBox`}>
             <Image
-              src="/Image/pngegg (3).png"
+              src="/Image/Strawberry.png"
               priority
               alt="N/A"
-              width="1000"
+              width={200}
               height={0}
             />
+          </div>
           </div>
           <div className={`${styles.innerdiv0} inerdiv1`}>
             <h1 data-cursor-text="Strawberry" data-cursor-size="100px">Strawberry</h1>
@@ -189,14 +176,16 @@ const SecondP = () => {
           </div>
         </div>
         <div className={`${styles.div1} div4`}>
-          <div className={`${styles.innerdiv} inerdiv`}>
+        <div className="animatedBox2" >
+          <div className={`animatedBox`}>
             <Image
               src="/Image/pistachio.png"
               priority
               alt="N/A"
-              width={500}
+              width={350}
               height={0}
             />
+          </div>
           </div>
           <div className={`${styles.innerdiv0} ${styles.innerdiv2} inerdiv1`}>
             <h1 data-cursor-text="Pistachio" data-cursor-size="100px">Pistachio</h1>

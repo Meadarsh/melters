@@ -31,7 +31,7 @@ export const Firstpage = () => {
       translateY: 60,
     });
 
-  /*  gsap.from(".maindiv", {
+   /* gsap.from(".maindiv", {
       scale: 0.95,
       y: 150,
       duration: 0.6,
@@ -93,7 +93,7 @@ export const Firstpage = () => {
       >
         <div className={styles.leftdiv}>
           <div className={styles.sizer2}>
-            {" "}
+            
             <h2 className={`${styles.leftdh2} world`}>
               Welcome to the world of
             </h2>
@@ -101,7 +101,7 @@ export const Firstpage = () => {
           <h1 className={`${styles.leftdh1} melter`}> M€LTERS</h1>
           <br />
           <div data-scroll data-scroll-speed=".3" className={styles.sizer3}>
-            {" "}
+          
             <h2 className={`${styles.leftdh3} icecream`}>iCECREAM</h2>
           </div>
         </div>

@@ -10,6 +10,7 @@ export async function POST(req,res){
             productId:body.item.id, 
             userId:body.item.user
         }
+       
         await mongoose.connect(connStr);
         console.log("database Connected")
         const newItem = new CartM(data);

@@ -28,8 +28,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow: hidden;
-    font-size: 11px;
+    font-size: 17px;
     font-weight: 600;
 }
 
@@ -42,7 +41,8 @@
 .margintop{
     transform: rotate(90deg);
     color: rgb(0, 0, 0);
-    margin-top: -40px;
+    margin-top: -20px;
+ 
 }
 .margintop h2{
    color: black;
