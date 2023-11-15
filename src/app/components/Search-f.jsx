@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useEffect, useState } from "react";
 import { FiFilter, FiChevronDown,FiHeart } from "react-icons/fi";
 import { useDispatch } from "react-redux";
+import { IoBagOutline } from "react-icons/io5";
 import {BiCartAlt ,BiHeart,BiStore} from "react-icons/bi"
 import { addRender } from "../toolkit/slice";
 import { useSelector } from "react-redux";
@@ -118,19 +119,25 @@ const Searchf = ({sendDataToParent}) => {
           </button>
         </label>
        
-      </form>: <div onClick={()=>handleClick(0)} className=" hover:text-purple-600 w-28 cart-order  mt-5 flex items-center justify-between">
+      </form>: <div onClick={()=>handleClick(0)} className={`cursor-pointer w-28 ${navigate===0?'text-purple-600':'text-black' } hover:text-purple-600 cart-order mt-5 flex items-center justify-between `}>
      
      <h2 className="text-xl ">Shop</h2><BiStore />
       </div>}
-       <div onClick={()=>handleClick(1)} className=" hover:text-purple-600 w-28 cart-order mt-5 flex items-center justify-between">
+       <div onClick={()=>handleClick(1)} className={`cursor-pointer w-28  ${navigate===1?'text-purple-600':'text-black' } hover:text-purple-600 cart-order mt-5 flex items-center justify-between `}>
      
      <h2 className="text-xl ">Wishlist</h2><BiHeart />
       </div>
-     <div onClick={()=>handleClick(2)} className=" w-28  hover:text-purple-600 cart-order mt-5 flex items-center justify-between ">
+     <div onClick={()=>handleClick(2)} className={`cursor-pointer w-28 ${navigate===2?'text-purple-600':'text-black' } hover:text-purple-600 cart-order mt-5 flex items-center justify-between `}>
      
-     <h1 className="text-xl">Cart</h1> <BiCartAlt />
+     <h1 className="text-xl  ">Cart</h1> <BiCartAlt />
       </div>
-      <div className="filterOC" onClick={openfilter}>
+    <a href="/order">
+    <div className={`cursor-pointer w-28 hover:text-purple-600 cart-order mt-5 flex items-center justify-between `}>
+     
+     <h1 className="text-xl  ">Orders</h1> <IoBagOutline />
+      </div>
+    </a>
+      <div className="filterOC cursor-pointer" onClick={openfilter}>
         <FiFilter />
         <FiChevronDown />
       </div>

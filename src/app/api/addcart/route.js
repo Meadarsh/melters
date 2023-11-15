@@ -16,7 +16,7 @@ export async function POST(req,res){
         const newItem = new CartM(data);
         await newItem.save();
         const cartItem=await CartM.find(data)
-        mongoose.connection.close();
+       
         return NextResponse.json({ result:cartItem, success: true }); 
       } catch (error) {
         console.error("Error:", error);

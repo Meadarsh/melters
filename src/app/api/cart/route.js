@@ -12,13 +12,11 @@ export async function POST(req,res){
             userId:body.user
         }
      
-      
+       
         await mongoose.connect(connStr);
         console.log("database Connected")
           
          if (body.remove && body.remove.status) {
-         console.log("hello")
-          console.log(data)
          await CartM.deleteMany({ 
           userId: data.userId, 
           productId: body.remove.data 
@@ -28,6 +26,7 @@ export async function POST(req,res){
         const product={
             _id:cartItem.map((cartItem) => cartItem.productId)
         }
+        
         const result=await Product.find(product)
         
         return NextResponse.json({ result:result, success: true }); 

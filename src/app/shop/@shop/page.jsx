@@ -34,10 +34,10 @@ function RenderDisp() {
   if(product[0]==1){
     return (
       <div className='render-main-loader'>
-      <div class="loader">
-   <div class="box1"></div>
-   <div class="box2"></div>
-   <div class="box3"></div>
+      <div className="loader">
+   <div className="box1"></div>
+   <div className="box2"></div>
+   <div className="box3"></div>
  </div>
      </div>
     );

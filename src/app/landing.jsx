@@ -65,7 +65,7 @@ export const Firstpage = () => {
         scrub: true,
       },
     });
-  });
+  },[]);
 
   let inputStyle = {
     backgroundColor: "rgb(255, 223, 245)",

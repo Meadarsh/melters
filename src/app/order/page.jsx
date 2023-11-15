@@ -1,15 +1,37 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Map from './Indexmap'
 import Cancle from './Cancle'
 import {FaBars} from "react-icons/fa"
 import { FaXmark} from "react-icons/fa6"
-import { useSelector } from 'react-redux'
 import DCard from './deliveryCard';
+import { useUser } from '@auth0/nextjs-auth0/client'
 import "./style.css";
 const page = () => {
-    const cartData=useSelector((state) => state.cart.cart);
-    console.log(cartData);
+  const { user, error, isLoading } = useUser();
+  const[data,setData]=useState()
+  useEffect(()=>{
+    async function fetchData(){
+     try {
+       const response= await fetch('../api/order',{
+         method:'POST',
+         body:JSON.stringify({user:user.email,dataFetch:true})
+       })
+       if(response){
+        const dataa= await response.json()
+        setData(dataa.send);
+     }
+     } catch (error) {
+      console.log("ye error hai",error)
+      
+     }}
+     fetchData()
+  
+  },[user])
+  /***************************************************************************** */
+   
+  /***************************************************************************** */
+    
         const[navCondition,setNavCondition]=useState([<FaBars className='icon-order'/>,1,''])
         function openClose(){
             if(navCondition[1]===1){
@@ -23,7 +45,7 @@ const page = () => {
           
         }
         function neww(){
-            alert('New Function')
+           console.log(data)
         }
         /********************  canclilation Box ************************************* */
         const [boxCondition,setBoxCondition]=useState(false)
@@ -35,7 +57,7 @@ const page = () => {
             }
           }
         
-    let ab=[1,1,1,1,1,1,1,1,1,1,]
+   
   return (
     <div className='mainOrderPage'>
          {boxCondition&&<Cancle cancleBox={cancleBox} />}
@@ -46,15 +68,19 @@ const page = () => {
 
         </div>
         <div className="top-order-page">
-        <div className='order-detail-pannel'>
+        <div className='order-detail-pannel ml-10 -mt-10'>
         <div className="order-detail">
          {
-            ab.map((item, index) => (
-              <DCard key={index} /> 
+           data&&data.products.map((item) => (
+              <DCard key={item._id}
+              item={item} quantity={data.quantity[item._id] } /> 
             ))
             
          } 
        
+        </div>
+        <div className=' h-14 totalBox m-auto text-3xl flex items-center justify-end'>
+        <h1>Total Price:{data&&data.totalPrice}</h1>
         </div>
         </div>
         <div>

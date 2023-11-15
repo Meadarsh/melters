@@ -84,6 +84,9 @@
     flex-direction: column;
     overflow-y: scroll;
 }
+.totalBox{
+  width: 27vw;
+}
 .order-actions{
     height: 100px;
     display: flex;

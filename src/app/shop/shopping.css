@@ -637,3 +637,22 @@ border: 1px solid   rgb(242, 225, 255);
     margin-left: 0px;
   }
 }
+
+.remloader {
+  border: 3px solid rgba(0, 0, 0, .2);
+  border-left-color: transparent;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  animation: spin89345 1s linear infinite;
+}
+
+@keyframes spin89345 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

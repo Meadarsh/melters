@@ -2,7 +2,7 @@ import React, { useEffect, useState ,useRef} from "react";
 import "leaflet/dist/leaflet.css";
 import "./style.css";
 import { useGeolocation } from "./Location";
-import { MapContainer, TileLayer, Circle, } from "react-leaflet";
+import { MapContainer, TileLayer, Circle,Marker } from "react-leaflet";
 const Map = () => {
   const { isAvailable, isEnabled, coordinates } = useGeolocation();
   const mapRef = useRef(null);
@@ -45,7 +45,7 @@ const Map = () => {
               url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
               attribution='&copy;  <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a>"> contributors'
             />
-            <Circle center={[clientLocation[0],clientLocation[1]]}></Circle>
+            <Marker position={[clientLocation[0],clientLocation[1]]}/>
           </MapContainer>
         </div>
         ) : (
