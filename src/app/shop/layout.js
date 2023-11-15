@@ -21,6 +21,7 @@ const layout = (props) => {
 {user&&<div className='MainshopP'>
   <Searchf sendDataToParent={DataFromChild} />
   {props.children}
+  {navVal===3?props.order:null}
   {navVal===2?props.cart:null}
   {navVal===0?props.shop:null}
   </div>}

@@ -5,6 +5,7 @@ import {BsTrash3Fill} from "react-icons/bs"
 import Image from "next/image";
 import { useUser } from '@auth0/nextjs-auth0/client';
 const Cart =  () => {
+  const [itemsAvail,setItemavil] =useState(false)
   const [loadingItems, setLoadingItems] = useState({});
   const [quantities, setQuantities] = useState({});
   const [orderLoading,setOrderLoading]=useState(true)
@@ -27,7 +28,8 @@ const Cart =  () => {
   
             let data = await response.json();
             data=data.result
-         if(data.length===0){ setProduct();}
+         if(data.length===0){ setProduct();
+          setItemavil(true) }
          else{
           setProduct(data)
         }
@@ -53,6 +55,8 @@ const Cart =  () => {
        if(status.success){
         setOrderLoading(true)
         setTotal(0)
+        window.location.href = '/order';
+        
        }
 
       } catch (error) {
@@ -103,7 +107,7 @@ const handleIncrease = async (itemId) => {
 
   return (
     <>
-    <div className=" relative h-full w-full">
+    <div className=" ml-3 relative h-full w-9/12">
   
    
         <div className="cartProList rounded h-4/5 overflow-y-scroll">
@@ -144,10 +148,10 @@ const handleIncrease = async (itemId) => {
           </div>
             </div>
              </div>
-        )):<div className='h-full w-full flex items-center justify-center gap-3'><h1 className=' text-gray-500 text-3xl'>No product </h1> <div className='remloader'></div> </div> }
+        )):<div className='h-full w-full flex items-center justify-center gap-3'>{itemsAvail? <div className='flex justify-center gap-10' ><h1 className=' text-gray-500 text-3xl'>No product </h1> <a href="/shop"><div className=' h-10 flex items-center justify-center rounded w-28 bg-purple-300 hover:bg-purple-400'>Go to shop</div></a></div> :<div className='remloader'></div>  }</div> }
        
         </div>
-        <div className=' h-28 w-full flex flex-col items-end justify-end'>
+      { product&& <div className=' h-28 w-full flex flex-col items-end justify-end'>
          <div className='flex'>
          <h2 className='mr-8 text-2xl  mb-5'>Total items: {product ? product.length : 0}</h2>
           <h2 className='mr-10 text-2xl  mb-5'>Total price:{total}₹</h2>
@@ -157,7 +161,7 @@ const handleIncrease = async (itemId) => {
        <input type="button" className=' bg-slate-300 w-40 h-10 mr-10 rounded' value="Cancle" />
       <div  className='bg-purple-300 w-40 h-10 mr-10 rounded flex items-center justify-center' onClick={orderApprove}  >{orderLoading?<h2>Order</h2>:<div className='remloader' ></div>}</div>
          </div> 
-        </div>
+        </div>}
     </div> 
     </>
    

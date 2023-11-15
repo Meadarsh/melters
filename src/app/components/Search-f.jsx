@@ -119,7 +119,7 @@ const Searchf = ({sendDataToParent}) => {
           </button>
         </label>
        
-      </form>: <div onClick={()=>handleClick(0)} className={`cursor-pointer w-28 ${navigate===0?'text-purple-600':'text-black' } hover:text-purple-600 cart-order mt-5 flex items-center justify-between `}>
+      </form>: <div onClick={()=>handleClick(0)} className={`cursor-pointer h-6 w-28 ${navigate===0?'text-purple-600':'text-black' } hover:text-purple-600 cart-order mt-5 flex items-center justify-between `}>
      
      <h2 className="text-xl ">Shop</h2><BiStore />
       </div>}
@@ -131,13 +131,11 @@ const Searchf = ({sendDataToParent}) => {
      
      <h1 className="text-xl  ">Cart</h1> <BiCartAlt />
       </div>
-    <a href="/order">
-    <div className={`cursor-pointer w-28 hover:text-purple-600 cart-order mt-5 flex items-center justify-between `}>
+     <div onClick={()=>handleClick(3)} className={`cursor-pointer w-28 ${navigate===3?'text-purple-600':'text-black' } hover:text-purple-600 cart-order mt-5 flex items-center justify-between `}>
      
-     <h1 className="text-xl  ">Orders</h1> <IoBagOutline />
+     <h1 className="text-xl ">Orders</h1> <IoBagOutline />
       </div>
-    </a>
-      <div className="filterOC cursor-pointer" onClick={openfilter}>
+     <> <div className="filterOC cursor-pointer" onClick={openfilter}>
         <FiFilter />
         <FiChevronDown />
       </div>
@@ -276,7 +274,8 @@ const Searchf = ({sendDataToParent}) => {
           </div>
         </div>
       </div>
-     
+      </>
+
     </div>
   );
 };

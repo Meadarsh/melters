@@ -14,7 +14,7 @@ const Navbar = () => {
         <div className={'NCdiv '}>
         <div className={'margintop'}>
         
-           <a href={user?"/shop":"/api/auth/login"}> <h2 >Shop</h2>
+           <a href={user?"/shop":"/api/auth/login?returnTo=/shop"}> <h2 >Shop</h2>
            </a>
            
         </div>

@@ -1,10 +1,10 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import Map from '../shop/@order/Indexmap'
-import Cancle from '../shop/@order/Cancle'
+import Map from './Indexmap'
+import Cancle from './Cancle'
 import {FaBars} from "react-icons/fa"
 import { FaXmark} from "react-icons/fa6"
-import DCard from '../shop/@order/deliveryCard';
+import DCard from './deliveryCard';
 import { useUser } from '@auth0/nextjs-auth0/client'
 import "./style.css";
 const page = () => {
@@ -13,7 +13,7 @@ const page = () => {
   useEffect(()=>{
     async function fetchData(){
      try {
-       const response= await fetch('../api/order',{
+       const response= await fetch('../../api/order',{
          method:'POST',
          body:JSON.stringify({user:user.email,dataFetch:true})
        })
@@ -71,16 +71,16 @@ const page = () => {
         <div className='order-detail-pannel ml-10 -mt-10'>
         <div className="order-detail">
          {
-           data&&data.products.map((item) => (
+           data?data.products.map((item) => (
               <DCard key={item._id}
               item={item} quantity={data.quantity[item._id] } /> 
-            ))
+            )):<div className='remloader  marginhalf' ></div>
             
          } 
        
         </div>
-        <div className=' h-14 totalBox m-auto text-3xl flex items-center justify-end'>
-        <h1><span className=' text-gray-600'>Total Price:</span>{data&&data.totalPrice}</h1>
+        <div className=' h-20 totalBox m-auto text-3xl flex items-end justify-end'>
+       {data&&<h1><span className=' text-gray-600'>Total Price:</span>{data&&data.totalPrice}</h1>}
         </div>
         </div>
         <div>
@@ -89,8 +89,6 @@ const page = () => {
 
         <div className="delivery-progress">
             <h2>Delivery Progress</h2>
-           
-
         </div>
         </div>
         </div>
