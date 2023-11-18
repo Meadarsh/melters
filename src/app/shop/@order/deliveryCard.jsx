@@ -12,7 +12,7 @@ const DCard = (item) => {
            <h2>{data.name}</h2>
             <p>Quantity:{item.quantity}</p>
            </div>
-           <div> <span className=' text-2xl'>{data.price_in_rupees}</span></div>
+           <div> <span className=' text-purple-700 text-2xl'>{data.price_in_rupees}</span></div>
         </div>
     </div>
   )

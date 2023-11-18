@@ -29,19 +29,31 @@ const page = () => {
   
   },[user])
   /***************************************************************************** */
-   
+function getQuantity (item) {
+   let quantity;
+      if (data.quantity && data.quantity[item._id]) {
+        quantity= data.quantity[item._id];
+      } else {
+      
+        quantity= 1;
+      
+      }
+     return quantity
+    
+  };
+
   /***************************************************************************** */
     
         const[navCondition,setNavCondition]=useState([<FaBars className='icon-order'/>,1,''])
         function openClose(){
             if(navCondition[1]===1){
-            setNavCondition ([ <FaXmark className='icon-order' />,0 ,'opacityChange', <div className={` ${navCondition[4]}  order-actions`}>
+            setNavCondition ([ <FaXmark className='icon-order cursor-pointer' />,0 ,'opacityChange', <div className={` ${navCondition[4]}  order-actions`}>
             <button onClick={neww} type="submit" className="btn btn-primary">Delay Order</button>
             <button onClick={cancleBox} className="btn btn-secondary">Decline Order</button>
         </div>,'open-button']);
         }
         else{
-                setNavCondition([<FaBars className='icon-order'/>,1,''])}
+                setNavCondition([<FaBars className='icon-order cursor-pointer'/>,1,''])}
           
         }
         function neww(){
@@ -72,8 +84,9 @@ const page = () => {
         <div className="order-detail">
          {
            data?data.products.map((item) => (
-              <DCard key={item._id}
-              item={item} quantity={data.quantity[item._id] } /> 
+             <DCard key={item._id}
+              item={item} quantity={getQuantity(item)} />
+             
             )):<div className='remloader  marginhalf' ></div>
             
          } 

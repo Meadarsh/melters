@@ -55,12 +55,10 @@ const Cart =  () => {
        if(status.success){
         setOrderLoading(true)
         setTotal(0)
-        window.location.href = '/order';
-        
        }
 
       } catch (error) {
-       console.log("unable to proccess order ")
+       console.log("unable to proccess order ",error)
       }
     }
 function removeP(val){
@@ -75,6 +73,7 @@ useEffect(() => {
     const totalPrice = product.reduce((acc, item) => acc + item.price_in_rupees, 0);
     setTotal(totalPrice);
   }
+
 }, [product]);
  
  const handleDecrease = async (itemId) => {
@@ -100,8 +99,6 @@ const handleIncrease = async (itemId) => {
   if (products) {
     setTotal(total + products.price_in_rupees);
   }
- // console.log(total)
-  console.log(quantities)
 };
 
 

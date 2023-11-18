@@ -157,10 +157,10 @@ const SecondP = () => {
         <div className="animatedBox2" >
           <div className={`animatedBox`}>
             <Image
-              src="/Image/Strawberry.png"
+              src="/Image/strawberry.png"
               priority
               alt="N/A"
-              width={200}
+              width={700}
               height={0}
             />
           </div>
