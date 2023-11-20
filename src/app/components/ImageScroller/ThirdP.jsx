@@ -53,7 +53,7 @@ const ThirdP = () => {
              <div className={styles.underLine}></div>
           </div>
         </div>
-        <div className={styles.mainImgDiv}>
+        <div className={`${styles.mainImgDiv} rounded`}>
         <div className={`${styles.rightdiv} p3Rdiv`}>
      <div className={styles.innerImgdiv}><Image src="/Image/geleto.jpg" width={400} height={800} alt="N/a"/></div>
      <div className={styles.innerImgdiv}> <Image src="/Image/kulfi.png" width={500} height={700} alt="N/a" /> </div>

@@ -15,14 +15,16 @@ export  async function POST(req,res){
  try {
   if(request.dataFetch){
     const orderProduct= await OrderM.find(data)
-    const search={_id:orderProduct[0].productIds}
+    let n = (orderProduct.length)?(orderProduct.length)-1:0
+    console.log(n)
+    const search={_id:orderProduct[n].productIds}
     const result=await Product.find(search)
     
     const send={
       products:result,
-      totalPrice:orderProduct[0].totalPrice,
-      quantity:orderProduct[0].quantity,
-      orderId:orderProduct[0]._id
+      totalPrice:orderProduct[n].totalPrice,
+      quantity:orderProduct[n].quantity,
+      orderId:orderProduct[n]._id
 
     }
     return NextResponse.json({send, success: true })

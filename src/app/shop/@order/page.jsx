@@ -92,8 +92,9 @@ function getQuantity (item) {
          } 
        
         </div>
-        <div className=' h-20 totalBox m-auto text-3xl flex items-end justify-end'>
+        <div className=' h-20 totalBox m-auto text-3xl gap-3 flex mt-3  items-center justify-end'>
        {data&&<h1><span className=' text-gray-600'>Total Price:</span>{data&&data.totalPrice}</h1>}
+       <div className=' h-8 w-24 rounded-sm text-sm flex items-center justify-center bg-purple-400 hover:bg-purple-600'><p>Pay now</p></div>
         </div>
         </div>
         <div>
